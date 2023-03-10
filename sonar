@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo "Sending report to SonarQube server..." >&2
+
+sonar-scanner \
+  -Dsonar.projectKey=laravel_10_poc \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://localhost:9003 \
+  -Dsonar.login=sqp_0cb53318d74798ba0506e7dfa1b6607d9685c8e3
+
+echo "Opening SonarQube Gui..." >&2
+
+sensible-browser http://localhost:9003/dashboard?id=laravel_10_poc
